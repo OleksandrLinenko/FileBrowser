@@ -4,6 +4,8 @@
  */
 package userinterface;
 
+import filebrowser.WriteFileContentCommand;
+import filebrowser.WriteFilesCommand;
 import filebrowser.WriteFoldersCommand;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -77,15 +79,15 @@ public class MainMenu {
     }
 
     private void writeFolders() {
-        WriteFoldersCommand.create().handle("Hello");
+        WriteFoldersCommand.create().handle("Directory");
     }
 
     private void writeFiles() {
-
+        WriteFilesCommand.create().handle("Folder");
     }
 
     private void writeFileContent() {
-
+        WriteFileContentCommand.create().handle("File");
     }
 
 }

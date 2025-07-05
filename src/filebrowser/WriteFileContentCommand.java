@@ -5,17 +5,16 @@
 package filebrowser;
 
 /**
- * Write all available folders in a given directory;
  *
  * @author oleksandrlinenko
  */
-public class WriteFoldersCommand {
-
-    public static WriteFoldersCommand create() {
-        return new WriteFoldersCommand();
+public class WriteFileContentCommand {
+    
+    public static WriteFileContentCommand create() {
+        return new WriteFileContentCommand();
     }
 
-    public void handle(String directory) {
+    public void handle(String file) {
 
     }
 }
