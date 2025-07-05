@@ -4,6 +4,7 @@
  */
 package userinterface;
 
+import filebrowser.AskPathCommand;
 import filebrowser.WriteFileContentCommand;
 import filebrowser.WriteFilesCommand;
 import filebrowser.WriteFoldersCommand;
@@ -75,7 +76,7 @@ public class MainMenu {
     }
 
     private void setPath() {
-
+        AskPathCommand.create().handle();
     }
 
     private void writeFolders() {
