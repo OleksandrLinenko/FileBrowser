@@ -1,24 +1,26 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package filebrowser;
+package userinterface;
 
-import java.util.Scanner;
+import filebrowser.WriteFoldersCommand;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  *
  * @author oleksandrlinenko
  */
-public class UI {
+public class MainMenu {
 
     private static Scanner sc = new Scanner(System.in);
+    
+    public static MainMenu create() {
+        return new MainMenu();
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    public void show() {
         boolean endProgram = false;
         do {
             menu();
@@ -27,7 +29,7 @@ public class UI {
         } while (!endProgram);
     }
 
-    private static void menu() {
+    private void menu() {
         System.out.println("1. Set path to directory");
         System.out.println("2. Write all folders form directory");
         System.out.println("3. Write all files from folder");
@@ -35,7 +37,7 @@ public class UI {
         System.out.println("0. End program");
     }
 
-    private static int readOption() {
+    private int readOption() {
         System.out.print("Set the option");
         int option;
         try {
@@ -47,7 +49,7 @@ public class UI {
         return option;
     }
 
-    private static boolean doOption(int option) {
+    private boolean doOption(int option) {
         switch (option) {
             case 0:
                 return true;
@@ -70,19 +72,19 @@ public class UI {
         return false;
     }
 
-    private static void setPath() {
+    private void setPath() {
 
     }
 
-    private static void writeFolders() {
+    private void writeFolders() {
+        WriteFoldersCommand.create().handle("Hello");
+    }
+
+    private void writeFiles() {
 
     }
 
-    private static void writeFiles() {
-
-    }
-
-    private static void writeFileContent() {
+    private void writeFileContent() {
 
     }
 
