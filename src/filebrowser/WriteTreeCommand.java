@@ -17,10 +17,12 @@ public class WriteTreeCommand {
     }
 
     public void handle() {
-        String path = Application.getInstance().getPath();
-        Directory directory = new Directory(path);
+        Message.create().show("");
+        Directory directory = Application.getInstance().getDirectory();
         for (Directory dir : directory.getDirectories()) {
             Message.create().show(String.format("%s ", dir.toString()));
         }
+        
+        Message.create().show("----------------------------------------------");
     }
 }

@@ -6,6 +6,7 @@ package userinterface;
 
 import filebrowser.Application;
 import filebrowser.AskPathCommand;
+import filebrowser.Directory;
 import filebrowser.WriteFileContentCommand;
 import filebrowser.WriteTreeCommand;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class MainMenu {
     }
 
     private int readOption() {
-        System.out.print("Set the option");
+        System.out.print("Set the option: ");
         int option;
         try {
             option = sc.nextInt();
@@ -74,6 +75,8 @@ public class MainMenu {
 
     private void setPath() {
         AskPathCommand.create().handle();
+        Directory directory = Application.getInstance().getDirectory();
+        directory.fill(null, null);
     }
     
     private void showTree() {

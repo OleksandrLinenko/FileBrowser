@@ -4,6 +4,7 @@
  */
 package filebrowser;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +48,23 @@ public class Directory {
 
     public void addFile(CustomFile file) {
         files.add(file);
+    }
+
+    public void fill(String path, Directory directory) {
+        if (path == null || directory == null) {
+            path = Application.getInstance().getPath();
+            directory = Application.getInstance().getDirectory();
+        }
+        File pathFile = new File(path);
+        for (File file : pathFile.listFiles()) {
+            if (file.isDirectory()) {
+                Directory directoryTemp = new Directory(file.getPath());
+                directory.addDirectory(directoryTemp);
+                fill(file.getPath(), directoryTemp);
+            } else {
+                directory.addFile(new CustomFile(file.getPath(), file.length()));
+            }
+        }
     }
 
     @Override

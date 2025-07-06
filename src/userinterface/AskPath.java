@@ -19,7 +19,7 @@ public class AskPath {
     }
 
     public String show(String string) {
-        System.out.println(string);
+        System.out.print(string);
         return sc.nextLine();
     }
 }

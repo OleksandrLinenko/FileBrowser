@@ -10,9 +10,9 @@ package filebrowser;
  */
 public class CustomFile {
     private String name;
-    private int size;
+    private long size;
 
-    public CustomFile(String name, int size) {
+    public CustomFile(String name, long size) {
         this.name = name;
         this.size = size;
     }
@@ -21,12 +21,12 @@ public class CustomFile {
         return name;
     }
 
-    public int getSize() {
+    public long getSize() {
         return size;
     }
     
     @Override
     public String toString() {
-        return String.format("%s , %d", name, size);
+        return String.format("%s, size: %d", name, size);
     }
 }
