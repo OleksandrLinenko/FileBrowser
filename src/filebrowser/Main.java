@@ -4,6 +4,7 @@
  */
 package filebrowser;
 
+import java.io.IOException;
 import userinterface.MainMenu;
 
 /**
@@ -15,7 +16,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         MainMenu.create().show();
     }
 

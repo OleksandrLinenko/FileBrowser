@@ -4,6 +4,15 @@
  */
 package filebrowser;
 
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import userinterface.AskPath;
+import userinterface.ErrorMessage;
+import userinterface.Message;
+
 /**
  *
  * @author oleksandrlinenko
@@ -14,7 +23,18 @@ public class WriteFileContentCommand {
         return new WriteFileContentCommand();
     }
 
-    public void handle(String file) {
-
+    public void handle() throws FileNotFoundException, IOException {
+        String path = AskPath.create().show("Save path to file you want to read: ");
+        StringBuilder sb = new StringBuilder();
+        try(BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line;
+            while((line = br.readLine()) != null) {
+                sb.append(String.format("%s\n", line));
+            }
+            
+            Message.create().show(sb.toString());
+        } catch(IOException ex) {
+            ErrorMessage.create().show(ex.getMessage());
+        }   
     }
 }

@@ -19,7 +19,7 @@ public class AskPathCommand {
     }
     
     public void handle() {
-        path = AskPath.create().show();
+        path = AskPath.create().show("Enter path: ");
         Application.getInstance().setPath(path);
     }   
 }

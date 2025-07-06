@@ -4,22 +4,18 @@
  */
 package userinterface;
 
-import java.util.Scanner;
-
 /**
  *
  * @author oleksandrlinenko
  */
-public class AskPath {
-
-    private Scanner sc = new Scanner(System.in);
-
-    public static AskPath create() {
-        return new AskPath();
+public class ErrorMessage {
+    
+    public static ErrorMessage create() {
+        return new ErrorMessage();
     }
-
-    public String show(String string) {
+    
+    public void show(String string) {
+        System.out.println("Error Error Error");
         System.out.println(string);
-        return sc.nextLine();
     }
 }

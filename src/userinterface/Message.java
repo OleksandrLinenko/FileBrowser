@@ -2,20 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package filebrowser;
+package userinterface;
 
 /**
- * Write all available folders in a given directory;
  *
  * @author oleksandrlinenko
  */
-public class WriteFoldersCommand {
+public class Message {
 
-    public static WriteFoldersCommand create() {
-        return new WriteFoldersCommand();
+    public static Message create() {
+        return new Message();
     }
 
-    public void handle(String directory) {
-
+    public void show(String string) {
+        System.out.println(string);
     }
 }

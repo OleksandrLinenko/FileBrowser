@@ -4,10 +4,11 @@
  */
 package userinterface;
 
+import filebrowser.Application;
 import filebrowser.AskPathCommand;
 import filebrowser.WriteFileContentCommand;
-import filebrowser.WriteFilesCommand;
-import filebrowser.WriteFoldersCommand;
+import filebrowser.WriteTreeCommand;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -23,7 +24,7 @@ public class MainMenu {
         return new MainMenu();
     }
 
-    public void show() {
+    public void show() throws IOException {
         boolean endProgram = false;
         do {
             menu();
@@ -34,9 +35,8 @@ public class MainMenu {
 
     private void menu() {
         System.out.println("1. Set path to directory");
-        System.out.println("2. Write all folders form directory");
-        System.out.println("3. Write all files from folder");
-        System.out.println("4. Write choosen file content");
+        System.out.println("2. Show tree");
+        System.out.println("3. Write choosen file content");
         System.out.println("0. End program");
     }
 
@@ -52,7 +52,7 @@ public class MainMenu {
         return option;
     }
 
-    private boolean doOption(int option) {
+    private boolean doOption(int option) throws IOException {
         switch (option) {
             case 0:
                 return true;
@@ -60,12 +60,9 @@ public class MainMenu {
                 setPath();
                 break;
             case 2:
-                writeFolders();
+                showTree();
                 break;
             case 3:
-                writeFiles();
-                break;
-            case 4:
                 writeFileContent();
                 break;
             default:
@@ -78,17 +75,14 @@ public class MainMenu {
     private void setPath() {
         AskPathCommand.create().handle();
     }
-
-    private void writeFolders() {
-        WriteFoldersCommand.create().handle("Directory");
+    
+    private void showTree() {
+        WriteTreeCommand.create().handle();
     }
+    
 
-    private void writeFiles() {
-        WriteFilesCommand.create().handle("Folder");
-    }
-
-    private void writeFileContent() {
-        WriteFileContentCommand.create().handle("File");
+    private void writeFileContent() throws IOException {
+        WriteFileContentCommand.create().handle();
     }
 
 }
