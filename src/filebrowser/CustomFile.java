@@ -28,32 +28,8 @@ public class CustomFile {
         return size;
     }
 
-    public CustomFile findFile(String path, String fileName) {
-        File directory = new File(path);
-        if (!directory.exists() || !directory.isDirectory()) {
-            return null;
-        }
-
-        for (File file : directory.listFiles()) {
-            if (file.isDirectory()) {
-                CustomFile found = findFile(file.getPath(), fileName);
-                if (found != null) {
-                    return found;
-                }
-            } else {
-                if (file.getName().equals(fileName)) {
-                    return new CustomFile(file.getPath(), file.length());
-                }
-            }
-        }
-
-        return null; 
-    }
-
-        @Override
-        public String toString
-        
-            () {
+    @Override
+    public String toString() {
         return String.format("%s, size: %d", name, size);
-        }
     }
+}
