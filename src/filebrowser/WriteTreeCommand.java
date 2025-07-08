@@ -19,10 +19,7 @@ public class WriteTreeCommand {
     public void handle() {
         Message.create().show("");
         Directory directory = Application.getInstance().getDirectory();
-        for (Directory dir : directory.getDirectories()) {
-            Message.create().show(String.format("%s ", dir.toString()));
-        }
-        
+        Message.create().show(String.format("%s ", directory.toString()));
         Message.create().show("----------------------------------------------");
     }
 }

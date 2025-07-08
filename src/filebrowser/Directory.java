@@ -66,6 +66,8 @@ public class Directory {
             }
         }
     }
+    
+    
 
     @Override
     public String toString() {
@@ -78,6 +80,8 @@ public class Directory {
         for (CustomFile fl : files) {
             sb.append(String.format("%s\n", fl.toString()));
         }
+        
+        sb.append("\n");
 
         return sb.toString();
     }

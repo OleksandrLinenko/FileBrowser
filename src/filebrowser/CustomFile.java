@@ -4,11 +4,14 @@
  */
 package filebrowser;
 
+import java.io.File;
+
 /**
  *
  * @author oleksandrlinenko
  */
 public class CustomFile {
+
     private String name;
     private long size;
 
@@ -24,9 +27,33 @@ public class CustomFile {
     public long getSize() {
         return size;
     }
-    
-    @Override
-    public String toString() {
-        return String.format("%s, size: %d", name, size);
+
+    public CustomFile findFile(String path, String fileName) {
+        File directory = new File(path);
+        if (!directory.exists() || !directory.isDirectory()) {
+            return null;
+        }
+
+        for (File file : directory.listFiles()) {
+            if (file.isDirectory()) {
+                CustomFile found = findFile(file.getPath(), fileName);
+                if (found != null) {
+                    return found;
+                }
+            } else {
+                if (file.getName().equals(fileName)) {
+                    return new CustomFile(file.getPath(), file.length());
+                }
+            }
+        }
+
+        return null; 
     }
-}
+
+        @Override
+        public String toString
+        
+            () {
+        return String.format("%s, size: %d", name, size);
+        }
+    }

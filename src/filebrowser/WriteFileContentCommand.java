@@ -6,6 +6,7 @@ package filebrowser;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -24,7 +25,9 @@ public class WriteFileContentCommand {
     }
 
     public void handle() throws FileNotFoundException, IOException {
-        String path = AskPath.create().show("Save path to file you want to read: ");
+        String path = AskPath.create().show("Set path: ");
+        String file = AskPath.create().show("Set file: ");
+//        File file = findFile(path, file);
         StringBuilder sb = new StringBuilder();
         try(BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
